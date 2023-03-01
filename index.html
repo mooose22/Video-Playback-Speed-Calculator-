@@ -53,7 +53,7 @@
         <img src="playback.jpg" alt="Your image" />
       </div>
     </div>
-    <script>
+   <script>
   function calculate() {
     // Get the duration, hours, minutes, and speed from the form
     let hours = document.getElementById("hours").value;
@@ -61,7 +61,11 @@
       hours = 0;
     }
     hours = parseInt(hours);
-    const minutes = parseInt(document.getElementById("minutes").value);
+    let minutes = document.getElementById("minutes").value;
+    if (minutes === "") {
+      minutes = 0;
+    }
+    minutes = parseInt(minutes);
     const duration = hours * 60 + minutes;
     const speed = parseFloat(document.getElementById("speed").value);
 

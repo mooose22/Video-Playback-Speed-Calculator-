@@ -54,24 +54,31 @@
       </div>
     </div>
     <script>
-      function calculate() {
-        // Get the duration, hours, minutes, and speed from the form
-        const hours = parseInt(document.getElementById("hours").value);
-        const minutes = parseInt(document.getElementById("minutes").value);
-        const duration = hours * 60 + minutes;
-        const speed = parseFloat(document.getElementById("speed").value);
+  function calculate() {
+    // Get the duration, hours, minutes, and speed from the form
+    let hours = document.getElementById("hours").value;
+    if (hours === "") {
+      hours = 0;
+    }
+    hours = parseInt(hours);
+    const minutes = parseInt(document.getElementById("minutes").value);
+    const duration = hours * 60 + minutes;
+    const speed = parseFloat(document.getElementById("speed").value);
 
-        // Calculate the new duration at the selected speed
-        const newDuration = duration / speed;
+    // Calculate the new duration at the selected speed
+    const newDuration = duration / speed;
 
-        // Convert the new duration back to hours and minutes
-        const newHours = Math.floor(newDuration / 60);
-        const newMinutes = Math.round(newDuration % 60);
+    // Convert the new duration back to hours and minutes
+    let newHours = Math.floor(newDuration / 60);
+    let newMinutes = Math.round(newDuration % 60);
 
-        // Display the new duration in the result field
-        document.getElementById("result").value =
-          newHours + " hours " + newMinutes + " minutes";
-      }
-    </script>
+    // Display the new duration in the result field
+    if (newDuration < 60) {
+      document.getElementById("result").value = newMinutes + " minutes";
+    } else {
+      document.getElementById("result").value = newHours + " hours " + newMinutes + " minutes";
+    }
+  }
+</script>
   </body>
 </html>

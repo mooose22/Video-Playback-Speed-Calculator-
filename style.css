@@ -1,0 +1,195 @@
+/* Apply some basic styles to the body and heading */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: antiquewhite;
+}
+
+#nav-bar {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(146, 53, 53);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 20px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  align-items: center;
+}
+
+.calculation {
+  padding: 20px;
+}
+
+.calculation-header {
+  font-size: 1.5rem;
+  margin-left: 4rem;
+  padding-left: 20px;
+  color: black;
+}
+
+.image {
+  display: flex;
+  justify-content: center;
+}
+
+.image img {
+  width: 350px;
+  height: 200px;
+}
+
+/* Style the form and its elements */
+form {
+  width: 500px;
+  margin: 4rem;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+input[type="number"] {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1.2em;
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1.2em;
+  width: 300px;
+}
+
+button[type="button"] {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2em;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+button[type="button"]:hover {
+  background-color: #3e8e41;
+}
+
+/* Style the result field to look like a disabled input */
+#result {
+  background-color: #eee;
+  color: #6c6c6c;
+  cursor: default;
+}
+
+/* Style the error message */
+.error {
+  color: red;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .calculation-header {
+    margin-left: 0;
+  }
+
+  .image img {
+    width: 50%;
+  }
+
+  form {
+    width: 80%;
+    margin: 0 auto; /* set margin to auto to center horizontally */
+    padding: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  input[type="number"],
+  input[type="text"],
+  button[type="button"] {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  /* styles for screens with a maximum width of 768px */
+
+  body {
+    font-size: 14px; /* reduce font size for body */
+  }
+
+  .header {
+    font-size: 1.2rem; /* reduce font size for header */
+    padding: 10px; /* reduce padding for header */
+  }
+
+  .calculation-header {
+    font-size: 1.2rem; /* reduce font size for calculation header */
+    margin-left: 2rem; /* reduce margin for calculation header */
+    padding-left: 10px; /* reduce padding for calculation header */
+  }
+
+  input[type="number"],
+  input[type="text"],
+  button[type="button"] {
+    font-size: 1.1rem; /* reduce font size for form inputs and button */
+    padding: 5px; /* reduce padding for form inputs and button */
+    border-radius: 3px; /* reduce border radius for form inputs and button */
+    margin-bottom: 10px; /* reduce margin for form inputs and button */
+  }
+
+  .image img {
+    width: 60%; /* make image full width */
+    height: auto; /* maintain aspect ratio of image */
+  }
+
+  form {
+    width: 100%; /* reduce width of form */
+    margin: 0 auto; /* center form horizontally */
+    padding: 10px; /* reduce padding for form */
+    border-radius: 5px; /* reduce border radius for form */
+  }
+}

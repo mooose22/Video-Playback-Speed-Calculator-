@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Video Playback Calculator</title>
+  </head>
+  <body>
+    <nav id="nav-bar">
+      <div class="header">
+        <h1>Video Playback Calculator</h1>
+        <h5>Find out how long your video will take to watch!</h5>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="calculation">
+        <h6 class="calculation-header">Calculate Video Playback Time</h6>
+        <form>
+          <label for="hours">Video duration (hours):</label>
+          <input type="number" id="hours" name="hours" min="0" required /><br />
+
+          <label for="minutes">Video duration (minutes):</label>
+          <input
+            type="number"
+            id="minutes"
+            name="minutes"
+            min="0"
+            max="59"
+            required
+          /><br />
+
+          <label for="speed">Playback speed:</label>
+          <input
+            type="number"
+            id="speed"
+            name="speed"
+            min="0.0"
+            step="0.25"
+            required
+          /><br />
+
+          <button type="button" onclick="calculate()">Calculate</button
+          ><br /><br />
+
+          <label for="result">Duration at selected speed:</label>
+          <input type="text" id="result" readonly />
+        </form>
+      </div>
+      <div class="image">
+        <img src="playback.jpg" alt="Your image" />
+      </div>
+    </div>
+    <script>
+      function calculate() {
+        // Get the duration, hours, minutes, and speed from the form
+        const hours = parseInt(document.getElementById("hours").value);
+        const minutes = parseInt(document.getElementById("minutes").value);
+        const duration = hours * 60 + minutes;
+        const speed = parseFloat(document.getElementById("speed").value);
+
+        // Calculate the new duration at the selected speed
+        const newDuration = duration / speed;
+
+        // Convert the new duration back to hours and minutes
+        const newHours = Math.floor(newDuration / 60);
+        const newMinutes = Math.round(newDuration % 60);
+
+        // Display the new duration in the result field
+        document.getElementById("result").value =
+          newHours + " hours " + newMinutes + " minutes";
+      }
+    </script>
+  </body>
+</html>
